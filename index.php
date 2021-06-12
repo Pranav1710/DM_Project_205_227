@@ -20,7 +20,7 @@
         <span class="primary-logo-text">To-do </span><span class="secondary-logo-text">List</span>
       </div>
 
-      <button class="btn btn-login float-right">LogIn</button>
+      <a href="./register/login.html"><button class="btn btn-login float-right">LogIn</button></a>
     </div>
   </header>
 
