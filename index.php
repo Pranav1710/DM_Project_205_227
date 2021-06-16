@@ -19,8 +19,13 @@
       <div class="logo">
         <span class="primary-logo-text">To-do </span><span class="secondary-logo-text">List</span>
       </div>
-
-      <a href="./register/login.php"><button class="btn btn-login float-right">LogIn</button></a>
+      <?php
+        session_start();
+        if(isset($_SESSION['uname'])){ ?>
+          <a href="./auth/login.php"><button class="btn btn-login float-right" id="logout">Logout</button></a>
+        <?php } else { ?>
+          <a href="./auth/login.php"><button class="btn btn-login float-right">LogIn</button></a>
+        <?php } ?>
     </div>
   </header>
 
@@ -28,7 +33,14 @@
     <div class="grid-layout">
       <div class="todo-list">
         <h1 class="primary-text">
-          List Name <i class="far fa-trash-alt fa-icn fa-icn-big"></i>
+          <?php
+            if(isset($_SESSION['uname'])){
+              echo "What is today's plan, ". $_SESSION['uname'];
+            }else{
+              echo "do what you are supposed to do";
+            }
+          ?>
+           <!-- <i class="far fa-trash-alt fa-icn fa-icn-big"></i> -->
         </h1>
         <form action="task.php" method="post" class="list-item" id="taskForm">
           <input type="text" placeholder="Write Your Task Here" name="task_name" maxlength="34" />
@@ -49,6 +61,7 @@
       </div>
     </div>
   </main>
+  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="./script.js"></script>
 </body>

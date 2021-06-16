@@ -10,6 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] === 'GET') {
         while ($row = $result->fetch_assoc()) {
             if($row['email'] === $_GET['email'] && $row['password'] === $_GET['password']){
                 $status =  "success";
+                session_start();
+                $_SESSION['uname']= $row['username'];
+                $_SESSION['email']= $row['email'];
+                $_SESSION['id']= $row['user_id'];
+
+                header('Location: http://localhost/todo%20list/');
                 break;
             }
         }

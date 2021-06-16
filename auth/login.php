@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['uname'])){
+        session_destroy();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +26,7 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
-                    <form method="GET" id="signin-form" class="signup-form">
+                    <form method="GET" id="signin-form" class="signup-form" action="user.php">
                         <h2 class="form-title">Login to account</h2>
                         <div class="form-group">
                             <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
@@ -46,5 +52,5 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 </html>
